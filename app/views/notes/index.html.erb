@@ -1,0 +1,15 @@
+<h1> Hey, welcome to the notes index <h1>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+    <% @notes.each do |note| %>
+    <tr>
+     <td><%= note.title %></td>
+     <td><%= note.description %></td>
+   </tr>
+   <% end %>
+ </table>
+ 
