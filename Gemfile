@@ -7,6 +7,8 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Devise for authentication
+gem 'devise'
 # simple_form to keep my sanity
 gem 'simple_form'
 
