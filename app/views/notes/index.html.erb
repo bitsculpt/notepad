@@ -2,6 +2,7 @@
 <% unless user_signed_in? -%>
   <p><%= link_to 'Sign up as User', new_user_registration_path %></p>
   <p><%= link_to 'Sign in as User', new_user_session_path %></p>
+
 <% end -%>
 <% if user_signed_in? %>
 <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
@@ -11,11 +12,16 @@
       <th>Title</th>
       <th>Description</th>
     </tr>
+    <% if user_signed_in? %>
     <% @notes.each do |note| %>
     <tr>
      <td><%= note.title %></td>
      <td><%= note.description %></td>
    </tr>
+   <% end %>
+   <% else %>
+  <p> You can only see notes from your user account </p>
+   
    <% end %>
  </table>
  <%= link_to "New Note", new_note_path %>

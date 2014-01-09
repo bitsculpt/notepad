@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
  # making a change to test remote repository
+ before_filter :authenticate_user!, except: [:index]
  def index
   @notes = Note.all 
 end
@@ -8,7 +9,7 @@ def new
 end
 
 def create
-  @note = Note.new(note_params)
+  @note = current_user.notes.build(note_params)
   if @note.save
     redirect_to @note, notice: 'Note was successfully created.'
   else
