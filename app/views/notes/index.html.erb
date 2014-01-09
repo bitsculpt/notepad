@@ -11,6 +11,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+
     </tr>
     <% if user_signed_in? %>
     <% @notes.each do |note| %>
@@ -20,8 +21,9 @@
    </tr>
    <% end %>
    <% else %>
-  <p> You can only see notes from your user account </p>
+  <p> You can only see notes </p>
+
    
    <% end %>
  </table>
- <%= link_to "New Note", new_note_path %>
+ <%= link_to "New Note", new_user_note_path %>

@@ -4,5 +4,6 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.association :category %>
+  <%= f.input :public, :as => :select, :collection => [['No',false],['Yes',true]], :include_blank => false, :label => "Public"%>
   <%= f.button :submit %>
 <% end %>
