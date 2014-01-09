@@ -1,0 +1,9 @@
+<h1> Welcome to the index page, where you can sign in, and stuff. </h1>
+<% unless user_signed_in? -%>
+<p><%= link_to 'Sign up as User', new_user_registration_path %></p>
+<p><%= link_to 'Sign in as User', new_user_session_path %></p>
+
+<% end -%>
+<% if user_signed_in? %>
+<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+<% end %>

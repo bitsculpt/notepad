@@ -1,8 +1,8 @@
 class NotesController < ApplicationController
  # making a change to test remote repository
- before_filter :authenticate_user!, except: [:index]
+ before_filter :authenticate_user!
  def index
-  @notes = Note.all 
+  @notes = current_user.notes 
 end
 def new
   @notes = Note.new
@@ -24,7 +24,7 @@ end
 
 
 def note_params
-  params.require(:note).permit(:title, :description)
+  params.require(:note).permit(:title, :description, :category_id)
 end
 end
 
